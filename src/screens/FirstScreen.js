@@ -4,6 +4,7 @@ import inbar from "../images/עינבר ראשית.png";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Popped from '../components/poppedUpWindow/Popped';
+import Loader from '../loader/Loader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +13,12 @@ const HeroSection = () => {
   const textBlockRef = useRef(null);
   const imageRef = useRef(null);
   const [isPoppedOpen, setIsPoppedOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false); // state חדש לבדיקת טעינת התמונה
 
   useEffect(() => {
+    // רק אם התמונה נטענה, הרץ את האנימציות
+    if (!imageLoaded) return;
+
     // Pre-header animation
     gsap.fromTo(
       preHeaderRef.current,
@@ -202,10 +207,14 @@ const HeroSection = () => {
       }
     });
 
-  }, []);
+  }, [imageLoaded]); // הוספת imageLoaded כתלות
 
   const handleButtonClick = () => {
     setIsPoppedOpen(true);
+  };
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
   };
 
   return (
@@ -237,7 +246,9 @@ const HeroSection = () => {
           </div>
 
           <div className={styles.imageWrapper} ref={imageRef}>
-            <div className={styles.statsCard}>
+            {!imageLoaded && <Loader />} {/* הצגת הלואדר עד שהתמונה נטענת */}
+            
+            <div className={styles.statsCard} style={{ opacity: imageLoaded ? 1 : 0 }}>
               <div className={styles.statItem}>
                 <div className={styles.statNumber}>3000+</div>
                 <div className={styles.statLabel}>מטופלות</div>
@@ -253,10 +264,13 @@ const HeroSection = () => {
                 <div className={styles.statLabel}>פרקטיקה</div>
               </div>
             </div>
+            
             <img
               src={inbar}
               alt="עינבר בן אדרת"
               className={styles.image}
+              onLoad={handleImageLoad} // event handler לטעינת התמונה
+              style={{ opacity: imageLoaded ? 1 : 0 }} // הסתרת התמונה עד הטעינה
             />
           </div>
         </div>

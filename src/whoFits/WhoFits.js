@@ -10,49 +10,45 @@ const EligibilitySection = () => {
     setIsPoppedOpen(true);
   };
 
-  // הקורס מתאים לך אם
-  const eligibleList = [
-    {
-      text: "את בתחילת הדרך ומרגישה אבודה ולא בטוחה איך למלא את הקליניקה בלקוחות משלמים",
-      icon: <FaStar className={styles.icon} />
-    },
-    {
-      text: "סיימת קורס קוסמטיקה ואת מבינה שהלימודים נתנו בסיס, אבל לא כלים אמיתיים להתמודדות עם מקרים מורכבים",
-      icon: <FaUserShield className={styles.icon} />
-    },
-    {
-      text: "את מרגישה שהוצאות על מכשירים וחומרים לא מבטיחות קליניקה מלאה ורוצה סדר ברור מה כן שווה לקנות",
-      icon: <FaRocket className={styles.icon} />
-    },
-    {
-      text: "את רוצה ביטחון להגיד מחיר, לסגור סדרות טיפולים ולבנות תזרים יציב במקום לרדוף אחרי טיפולים חד פעמיים",
-      icon: <FaHandshake className={styles.icon} />
-    },
-    {
-      text: "יש לך רצון להתמיד, להשקיע ולעלות שלב מ'קוסמטיקאית עם תעודה' ל'אשת עסקים מצליחה'",
-      icon: <FaRocket className={styles.icon} />
-    },
-  ];
+const eligibleList = [
+  {
+    text: "סיימת קורס קוסמטיקה ואת מרגישה שחסרים לך כלים אמיתיים לעבודה בשטח",
+    icon: <FaStar className={styles.icon} />
+  },
+  {
+    text: "יש לך רצון להרוויח מהתחום הזה כמו שצריך ולא רק 'לטפל על הדרך'",
+    icon: <FaUserShield className={styles.icon} />
+  },
+  {
+    text: "את מתבלבלת מההמלצות ברשת ולא בטוחה איפה נכון להשקיע - מכשירים, חומרים או שיווק",
+    icon: <FaRocket className={styles.icon} />
+  },
+  {
+    text: "את רוצה להבין איך לסגור סדרות ולא להסתמך כל חודש על טיפולים חד פעמיים",
+    icon: <FaHandshake className={styles.icon} />
+  },
+  {
+    text: "את פתוחה ללמוד, לתרגל ולהתקדם - גם ברמה המקצועית וגם ברמה העסקית והאישית",
+    icon: <FaRocket className={styles.icon} />
+  }
+];
 
-  // הקורס פחות מתאים לך אם
-  const nonEligibleList = [
-    {
-      text: "את מחפשת פתרון קסם מהיר בלי להתאמץ ובלי להשקיע בתרגול",
-      icon: <FaTimes className={styles.iconNegative} />
-    },
-    {
-      text: "את לא מוכנה לפתוח את הראש, לעבוד על מיינדסט ולשנות תפיסות ישנות",
-      icon: <FaTimes className={styles.iconNegative} />
-    },
-    {
-      text: "את מעדיפה להמשיך להתנסות על לקוחות עם חוסר ביטחון במקום לקבל כלים נכונים",
-      icon: <FaTimes className={styles.iconNegative} />
-    },
-    {
-      text: "את לא מוכנה לקחת אחריות עסקית ומעדיפה להישאר עם הוצאות שעולות על ההכנסות",
-      icon: <FaTimes className={styles.iconNegative} />
-    }
-  ];
+const nonEligibleList = [
+  {
+    text: "את לא מתכוונת ליישם בפועל - רק לשמוע ולהמשיך כרגיל",
+    icon: <FaTimes className={styles.iconNegative} />
+  },
+  {
+    text: " את מחפשת פתרון קסם בלי תהליך של למידה ותרגול",
+    icon: <FaTimes className={styles.iconNegative} />
+  },
+  {
+    text: "את לא מוכנה להסתכל לעסק שלך בעיניים ולבחון מה באמת מעכב אותך",
+    icon: <FaTimes className={styles.iconNegative} />
+  },
+ 
+];
+
 
   return <>
     <div className={styles.container}>
