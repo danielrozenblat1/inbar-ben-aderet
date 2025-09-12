@@ -29,24 +29,9 @@ const SyllabusContainer = () => {
 
 
   const sessions = [
+  
     {
       id: 1,
-      title: "המיינדסט המנצח",
-      duration: "3-4 שעות",
-      icon: <Brain />,
-      color: "brain",
-      topics: [
-        { icon: <Target />, text: "היכרות אישית ומטרות הקורס" },
-        { icon: <Lightbulb />, text: "מעבר מקוסמטיקאית לאשת עסקים מצליחה" },
-        { icon: <Zap />, text: "איך המוח עובד - מחשבות, רגשות, פעולות ותוצאות" },
-        { icon: <Star />, text: "חוקי היקום - חוק המשיכה והמיקוד" },
-        { icon: <CheckCircle2 />, text: "14 שאלות ממקדות מטרה לבניית חזון ברור" },
-        { icon: <Heart />, text: "הכללות, עיוותים והשמטות בתקשורת" },
-        { icon: <Users />, text: "יצירת ראפור והובלת לקוחות" }
-      ]
-    },
-    {
-      id: 2,
       title: "מקצועיות ופרוטוקולים",
       duration: "3-4 שעות", 
       icon: <Microscope />,
@@ -59,6 +44,22 @@ const SyllabusContainer = () => {
         { icon: <Sparkles />, text: "טיפולים לנשים בהריון וחולים אונקולוגיים" },
         { icon: <CheckCircle2 />, text: "עשה ואל תעשה בתוך הקליניקה" },
         { icon: <Target />, text: "טכניקות ניקוז נכונות - סדנה מעשית" }
+      ]
+    },
+      {
+      id: 2,
+      title: "המיינדסט המנצח",
+      duration: "3-4 שעות",
+      icon: <Brain />,
+      color: "brain",
+      topics: [
+        { icon: <Target />, text: "היכרות אישית ומטרות הקורס" },
+        { icon: <Lightbulb />, text: "מעבר מקוסמטיקאית לאשת עסקים מצליחה" },
+        { icon: <Zap />, text: "איך המוח עובד - מחשבות, רגשות, פעולות ותוצאות" },
+        { icon: <Star />, text: "חוקי היקום - חוק המשיכה והמיקוד" },
+        { icon: <CheckCircle2 />, text: "14 שאלות ממקדות מטרה לבניית חזון ברור" },
+        { icon: <Heart />, text: "הכללות, עיוותים והשמטות בתקשורת" },
+        { icon: <Users />, text: "יצירת ראפור והובלת לקוחות" }
       ]
     },
     {

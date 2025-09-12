@@ -13,7 +13,7 @@ const ForthScreen = () => {
     <div className={styles.background}>
       <div className={styles.title}>אבל יותר מהכל</div>
       <div className={styles.description}>
-        <strong>ב-26 השנים האחרונות למדתי דבר אחד חשוב - </strong>מה שמפריד בין קוסמטיקאית טובה לבין אשת עסקים מצליחה 
+        <strong>ב-26 השנים האחרונות למדתי דבר אחד חשוב - </strong>מה שמפריד בין קוסמטיקאית רגילה לבין קוסמטיקאית שמובילה בתחום 
         זה לא רק ידע מקצועי, זה הרבה מעבר, זו הדרך שבה את מנהלת את הקליניקה שלך, זה הביטחון שאת משדרת וזו היכולת להבדיל בין העיקר לטפל. 
         וזה מה שמחכה לך כאן.
       </div>
@@ -22,7 +22,7 @@ const ForthScreen = () => {
       <div className={styles.tagsRow}>
         <div className={styles.tag}>
           <Users className={styles.tagIcon} size={20} />
-          <div className={styles.tagText}>4 מפגשים</div>
+          <div className={styles.tagText}>3 מפגשים</div>
         </div>
         <div className={styles.tag}>
           <Heart className={styles.tagIcon} size={20} />

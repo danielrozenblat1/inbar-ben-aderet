@@ -46,7 +46,10 @@ const nonEligibleList = [
     text: "את לא מוכנה להסתכל לעסק שלך בעיניים ולבחון מה באמת מעכב אותך",
     icon: <FaTimes className={styles.iconNegative} />
   },
- 
+   {
+    text: "את לא פתוחה ללמוד, לקבל דרכים חדשות ושינויים חדשים להתקדמות בעסק",
+    icon: <FaRocket className={styles.icon} />
+  }
 ];
 
 

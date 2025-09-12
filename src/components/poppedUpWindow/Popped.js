@@ -8,7 +8,7 @@ const Popped = ({ onClose, title }) => {
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
-  const messageRef = useRef(null);
+  const experienceRef = useRef(null);
   const reciver = "inbarbenaderet@gmail.com";
 
   const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLead";
@@ -37,7 +37,7 @@ const Popped = ({ onClose, title }) => {
     const name = nameRef.current.value;
     const phone = phoneRef.current.value;
     const email = emailRef.current.value;
-    const message = messageRef.current.value;
+    const experience = experienceRef.current.value;
 
     if (name.trim().length <= 2) {
       alert("אנא הכנס שם מלא");
@@ -51,8 +51,8 @@ const Popped = ({ onClose, title }) => {
       alert("אנא הכנס מייל תקין");
       return;
     }
-    if (message.trim().length < 5) {
-      alert("אנא הכנס הודעה של לפחות 5 תווים");
+    if (experience.trim().length < 5) {
+      alert("אנא ענה על השאלה - כמה זמן את בתחום ומה את מחפשת להשיג (לפחות 5 תווים)");
       return;
     }
 
@@ -60,7 +60,7 @@ const Popped = ({ onClose, title }) => {
       name,
       phone,
       email,
-      reason: message,
+      reason: experience, // שולח את התשובה בשדה reason לשרת
       reciver
     };
 
@@ -76,7 +76,7 @@ const Popped = ({ onClose, title }) => {
         nameRef.current.value = "";
         phoneRef.current.value = "";
         emailRef.current.value = "";
-        messageRef.current.value = "";
+        experienceRef.current.value = "";
         setAgreed(false);
         handleClose();
 
@@ -108,24 +108,28 @@ const Popped = ({ onClose, title }) => {
                 className={styles.input}
                 placeholder="שם מלא"
                 ref={nameRef}
+                required
               />
               <input
                 type="tel"
                 className={styles.input}
                 placeholder="מספר טלפון"
                 ref={phoneRef}
+                required
               />
               <input
                 type="email"
                 className={styles.input}
                 placeholder="מייל"
                 ref={emailRef}
+                required
               />
               <textarea
                 className={styles.textarea}
-                placeholder="איך אוכל לעזור לך? ספרי לי על עצמך ומה את מחפשת..."
-                ref={messageRef}
+                placeholder="כמה זמן את בתחום ומה את מחפשת להשיג?"
+                ref={experienceRef}
                 rows={4}
+                required
               />
 
               {/* תיבת האישור למדיניות הפרטיות */}
@@ -136,6 +140,7 @@ const Popped = ({ onClose, title }) => {
                     checked={agreed}
                     onChange={() => setAgreed(!agreed)}
                     className={styles.checkbox}
+                    required
                   />
                   קראתי את
                   <span onClick={handlePrivacyClick}>

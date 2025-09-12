@@ -1,0 +1,211 @@
+.NewBox {
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 2% auto;
+  /* Subtle glassmorphism matching statsCard style */
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.2) 0%, 
+    rgba(0, 0, 0, 0.15) 50%, 
+    rgba(0, 0, 0, 0.2) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(162, 173, 165, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(162, 173, 165, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Subtle glass shimmer effect */
+.NewBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.6) 50%, 
+    transparent 100%);
+}
+
+/* Gentle shimmer animation */
+.NewBox::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+  animation: glassShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
+
+/* Enhanced animations matching statsCard */
+@keyframes glassShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) translateY(200%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes glassFloat {
+  0%, 100% {
+    transform: translateY(0px);
+    backdrop-filter: blur(30px);
+  }
+  50% {
+    transform: translateY(-2px);
+    backdrop-filter: blur(32px);
+  }
+}
+
+.NewBox {
+  animation: glassFloat 4s ease-in-out infinite;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.description {
+  font-size: 1.1rem;
+  font-family: "AssistantR";
+  text-align: right;
+  margin: 2% auto;
+  direction: rtl;
+  width: 90%;
+  /* Clear text with subtle backdrop */
+  color: rgb(231, 231, 231);
+
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-family: "Assistant";
+  text-align: right;
+  padding-right: 10px;
+  direction: rtl;
+  width: 100%;
+  /* Clear title text */
+  color: rgb(235, 235, 235);
+
+  font-weight: 600;
+}
+
+.icon {
+  display: flex;
+  width: 30%;
+  margin-left: auto;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 4px rgba(162, 173, 165, 0.2));
+}
+
+.icon:hover {
+  filter: 
+    drop-shadow(0 6px 12px rgba(255, 255, 255, 0.4))
+    drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15))
+    brightness(1.2)
+    contrast(1.2);
+  transform: scale(1.05);
+}
+
+/* Mobile responsive styles with matching glassmorphism */
+@media only screen and (max-width: 350px) {
+  .NewBox {
+    width: 280px;
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    background: linear-gradient(135deg, 
+      rgba(162, 173, 165, 0.18) 0%, 
+      rgba(162, 173, 165, 0.10) 50%,
+      rgba(162, 173, 165, 0.16) 100%);
+  }
+  
+  .description {
+    font-size: 1rem;
+    color: rgba(40, 50, 42, 0.9);
+  }
+  
+  .title {
+    font-size: 1.4rem;
+    color: rgba(25, 35, 27, 0.95);
+  }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 450px) {
+  .NewBox {
+    width: 300px;
+    backdrop-filter: blur(27px);
+    -webkit-backdrop-filter: blur(27px);
+    background: linear-gradient(135deg, 
+      rgba(162, 173, 165, 0.19) 0%, 
+      rgba(162, 173, 165, 0.11) 50%,
+      rgba(162, 173, 165, 0.17) 100%);
+  }
+  
+  .description {
+    font-size: 1rem;
+  color: white
+  }
+  
+  .title {
+    font-size: 1.3rem;
+    color: white
+  }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 550px) {
+  .NewBox {
+    width: 350px;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    background: linear-gradient(135deg, 
+      rgba(162, 173, 165, 0.20) 0%, 
+      rgba(162, 173, 165, 0.12) 50%,
+      rgba(162, 173, 165, 0.18) 100%);
+  }
+  
+  .description {
+    font-size: 1.1rem;
+  color: white;
+    width: 95%;
+  }
+  
+  .title {
+    font-size: 1.7rem;
+  color: white;
+    width: 60%;
+  }
+  
+  .icon {
+    width: 25%;
+  }
+}
