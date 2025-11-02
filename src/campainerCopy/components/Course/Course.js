@@ -19,7 +19,14 @@ import {
   Crown,
   Sparkles,
   BookOpen,
-  Rocket
+  Rocket,
+  Music,
+  Compass,
+  Briefcase,
+  Search,
+  FileText,
+  DollarSign,
+  BarChart
 } from 'lucide-react';
 import styles from './Course.module.css';
 import Popped from '../poppedUpWindow/Popped';
@@ -27,54 +34,45 @@ import Popped from '../poppedUpWindow/Popped';
 const SyllabusContainer = () => {
   const [isPoppedOpen, setIsPoppedOpen] = useState(false);
 
-
   const sessions = [
     {
       id: 1,
-      title: "המיינדסט המנצח",
+      title: "הנחת יסודות: מיינדסט & חזון עסקי",
       duration: "3-4 שעות",
       icon: <Brain />,
       color: "brain",
       topics: [
-        { icon: <Target />, text: "היכרות אישית ומטרות הקורס" },
-        { icon: <Lightbulb />, text: "מעבר מקוסמטיקאית לאשת עסקים מצליחה" },
-        { icon: <Zap />, text: "איך המוח עובד - מחשבות, רגשות, פעולות ותוצאות" },
-        { icon: <Star />, text: "חוקי היקום - חוק המשיכה והמיקוד" },
-        { icon: <CheckCircle2 />, text: "14 שאלות ממקדות מטרה לבניית חזון ברור" },
-        { icon: <Heart />, text: "הכללות, עיוותים והשמטות בתקשורת" },
-        { icon: <Users />, text: "יצירת ראפור והובלת לקוחות" }
+        { icon: <Music />, text: "פתיחה חווייתית: שיר העצמה 'זה מתחיל בצעד', דמיון מודרך לבניית חזון אישי וקליניקה מצליחה, סבב היכרות והצגה עצמית" },
+        { icon: <Brain />, text: "עולם המיינדסט: כיצד פועל המוח, למה המיינדסט קריטי להצלחה, שאלון ממקד מטרה" },
+        { icon: <Heart />, text: "כלי NLP ליצירת חיבור עם לקוחות: מהו ראפור, טכניקת הובלה, זיהוי והמרת אמונות מגבילות" },
+        { icon: <Eye />, text: "הבסיס למכירה רכה: אבחון העור ככלי מכירה, שאלון לקוח שמעורר כאב ומוביל לתמונת נצחון" }
       ]
     },
     {
       id: 2,
-      title: "מקצועיות ופרוטוקולים",
-      duration: "3-4 שעות", 
+      title: "העור במרכז: פתולוגיות, פרוטוקולים וחומרים פעילים",
+      duration: "3-4 שעות",
       icon: <Microscope />,
       color: "microscope",
       topics: [
-        { icon: <Eye />, text: "אבחון העור - שלבים וסימנים מקצועיים" },
-        { icon: <BookOpen />, text: "השאלות הקריטיות בשאלון מטופלת" },
-        { icon: <Gem />, text: "בניית פרוטוקול טיפול מותאם אישית" },
-        { icon: <Crown />, text: "טיפול אקנה, פיגמנטציה ואנטי אייג'ינג" },
-        { icon: <Sparkles />, text: "טיפולים לנשים בהריון וחולים אונקולוגיים" },
-        { icon: <CheckCircle2 />, text: "עשה ואל תעשה בתוך הקליניקה" },
-        { icon: <Target />, text: "טכניקות ניקוז נכונות - סדנה מעשית" }
+        { icon: <Crown />, text: "שלושת הפתולוגיות המרכזיות: אקנה, פיגמנטציה, אנטי אייג'ינג" },
+        { icon: <Briefcase />, text: "ארגז הכלים: אילו חברות ומכשור חשובים בקליניקה, סקירת חומרים פעילים" },
+        { icon: <FileText />, text: "בניית פרוטוקול עבודה ללקוח: התאמה לפי מצב רפואי/תרופתי, שילוב טיפול ביתי" },
+        { icon: <Sparkles />, text: "חומרים פעילים – היכרות מעמיקה: אנטי אייג'ינג, פיגמנטציה, אקנה, שיקום" },
+        { icon: <ShoppingBag />, text: "חברות – עם מי כדאי לעבוד ואיך לבחור חכם?" },
+        { icon: <Search />, text: "דיון: הבעיה המרכזית של הקוסמטיקאיות היום ואיך לבחור חכם?" }
       ]
     },
     {
       id: 3,
-      title: "שיווק, מכירות וכלים לעסק מניב",
+      title: "מכשור, מכירות ושיווק",
       duration: "4-5 שעות",
       icon: <TrendingUp />,
       color: "trending",
       topics: [
-        { icon: <Rocket />, text: "חומרים פעילים והתאמה לכל סוג עור" },
-        { icon: <ShoppingBag />, text: "חברות מובילות בשוק ומה נחוץ לרכוש" },
-        { icon: <MessageCircle />, text: "תסריטי שיחה טלפונית ופרונטלית" },
-        { icon: <Award />, text: "סגירת סדרות טיפולים בצורה שירותית" },
-        { icon: <Zap />, text: "המכשירים האפקטיביים ביותר" },
-        { icon: <Users />, text: "בניית קהילה במדיה שקונה שוב ושוב" },
-        { icon: <Crown />, text: "דפי מכירה, קמפיינים ובידול עסקי" }
+        { icon: <Zap />, text: "מכשור: אילו מכשירים חובה בקליניקה ואילו בגדר Nice to Have" },
+        { icon: <Award />, text: "מכירות: בניית 'אווטאר' לקוח, סגירת סדרות NLP למכירה מאפשרת" },
+        { icon: <BarChart />, text: "שיווק פרקטי: אינסטגרם, סרטונים, דפי נחיתה, שיווק ממומן, פאנל שיווקי" }
       ]
     }
   ];

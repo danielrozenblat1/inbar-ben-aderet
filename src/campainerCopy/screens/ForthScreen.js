@@ -61,6 +61,7 @@ const ForthScreen = () => {
         תלחצי כאן ואנחנו מדברות
             </button>
             </div> */}
+            
     </div>
         {isPoppedOpen && <Popped onClose={() => setIsPoppedOpen(false)} />}
   </>
