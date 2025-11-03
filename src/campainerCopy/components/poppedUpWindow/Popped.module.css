@@ -122,6 +122,12 @@
   box-sizing: border-box;
 }
 
+.input:disabled,
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .textarea {
   width: 100%;
   padding: 14px 16px;
@@ -186,6 +192,10 @@
   cursor: pointer;
 }
 
+.checkbox:disabled {
+  cursor: not-allowed;
+}
+
 .button {
   font-family: 'AssistantR';
   font-size: 1.1rem;
@@ -243,6 +253,23 @@
 .button:active {
   transform: translateY(-1px) scale(1.01);
   transition: all 0.1s ease;
+}
+
+.buttonDisabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+  background: linear-gradient(135deg, 
+    rgba(162, 173, 165, 0.6) 0%, 
+    rgba(138, 154, 141, 0.65) 50%, 
+    rgba(162, 173, 165, 0.55) 100%);
+}
+
+.buttonDisabled:hover {
+  transform: none;
+  box-shadow: 
+    0 4px 15px rgba(162, 173, 165, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Media Queries */

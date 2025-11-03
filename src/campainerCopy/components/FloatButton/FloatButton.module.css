@@ -1,0 +1,124 @@
+.floatingButton {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  
+  padding: 18px 40px;
+  width: 100%;
+  
+  /* Glassmorphism - זכוכית ירוקה כהה עם גרדיאנט */
+  background: linear-gradient(135deg, 
+    rgba(113, 125, 116, 0.9) 0%, 
+    rgba(62, 74, 64, 0.95) 50%, 
+    rgba(93, 103, 95, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  /* גבול זכוכית עדין */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0;
+  
+  /* צללים לעומק */
+  box-shadow: 
+    0 -4px 24px 0 rgba(62, 74, 64, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  
+  cursor: pointer;
+  z-index: 1000;
+  
+  /* אנימציה חלקה */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+  
+  /* למניעת בחירת טקסט */
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* מרכוז הטקסט */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.floatingButton.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floatingButton.static {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+
+
+.floatingButton.static:hover {
+  transform: translateX(-50%) translateY(-3px);
+}
+
+.floatingButton:active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.floatingButton.static:active {
+  transform: translateX(-50%) translateY(0);
+}
+
+.buttonText {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Assistant";
+
+  white-space: nowrap;
+  
+  /* הוספת זוהר עדין לטקסט */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* אנימציה לטעינת הדף */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .floatingButton {
+    bottom: 0;
+    padding: 16px 30px;
+  }
+  
+  .buttonText {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floatingButton {
+    bottom: 0;
+    padding: 14px 24px;
+    left: 50%;
+    right: auto;
+    width: 100%;
+  }
+  
+  .buttonText {
+    font-size: 1.1rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.4;
+  }
+}

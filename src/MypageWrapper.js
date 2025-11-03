@@ -14,6 +14,7 @@ import PrivacyPolicy from './components/privacy/Privacy';
 import SplitForm from './screens/FifthScreen';
 import ThirdScreen from './screens/ThirdScreen';
 import SixthScreen from './screens/SixthScreen';
+import FloatingButton from './campainerCopy/components/FloatButton/FloatButton';
 const MyPageWrapper=()=>{
 
 
@@ -33,6 +34,7 @@ return <>
     phone="+972 50-686-7653" 
     domain="https://inbarbenaderet.co.il/" 
   />
+  <FloatingButton/>
   <ByMe/>
 
 </>

@@ -12,6 +12,7 @@ import PrivacyPolicy from './campainerCopy/components/privacy/Privacy';
 import SplitForm from './campainerCopy/screens/FifthScreen';
 import ThirdScreen from "./campainerCopy/screens/ThirdScreen";
 import SixthScreen from './screens/SixthScreen';
+import FloatingButton from "./campainerCopy/components/FloatButton/FloatButton";
 const CapmainPageWrapper=()=>{
 
 
@@ -32,6 +33,7 @@ return <>
     phone="+972 50-686-7653" 
     domain="https://inbarbenaderet.co.il/" 
   />
+  <FloatingButton/>
   <ByMe/>
 
 </>

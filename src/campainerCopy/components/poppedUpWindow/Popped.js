@@ -5,6 +5,7 @@ import PrivacyPolicy from "../privacy/Privacy";
 
 const Popped = ({ onClose, title }) => {
   const [agreed, setAgreed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
@@ -64,6 +65,8 @@ const Popped = ({ onClose, title }) => {
       reciver
     };
 
+    setIsSubmitting(true);
+
     try {
       const serverResponse = await fetch(serverUrl, {
         method: "POST",
@@ -78,6 +81,7 @@ const Popped = ({ onClose, title }) => {
         emailRef.current.value = "";
         messageRef.current.value = "";
         setAgreed(false);
+        setIsSubmitting(false);
         handleClose();
 
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -87,6 +91,7 @@ const Popped = ({ onClose, title }) => {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("חלה שגיאה בשליחת הטופס. אנא נסה שוב.");
+      setIsSubmitting(false);
     }
   };
 
@@ -108,24 +113,28 @@ const Popped = ({ onClose, title }) => {
                 className={styles.input}
                 placeholder="שם מלא"
                 ref={nameRef}
+                disabled={isSubmitting}
               />
               <input
                 type="tel"
                 className={styles.input}
                 placeholder="מספר טלפון"
                 ref={phoneRef}
+                disabled={isSubmitting}
               />
               <input
                 type="email"
                 className={styles.input}
                 placeholder="מייל"
                 ref={emailRef}
+                disabled={isSubmitting}
               />
               <textarea
                 className={styles.textarea}
                 placeholder="איך אוכל לעזור לך? ספרי לי על עצמך ומה את מחפשת..."
                 ref={messageRef}
                 rows={4}
+                disabled={isSubmitting}
               />
 
               {/* תיבת האישור למדיניות הפרטיות */}
@@ -136,6 +145,7 @@ const Popped = ({ onClose, title }) => {
                     checked={agreed}
                     onChange={() => setAgreed(!agreed)}
                     className={styles.checkbox}
+                    disabled={isSubmitting}
                   />
                   קראתי את
                   <span onClick={handlePrivacyClick}>
@@ -150,8 +160,12 @@ const Popped = ({ onClose, title }) => {
                 </label>
               </div>
 
-              <button type="submit" className={styles.button}>
-                עינבר, צרי איתי קשר
+              <button 
+                type="submit" 
+                className={`${styles.button} ${isSubmitting ? styles.buttonDisabled : ''}`}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "נשלח..." : "עינבר, צרי איתי קשר"}
               </button>
             </div>
           </form>
