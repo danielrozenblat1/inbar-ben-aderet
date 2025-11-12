@@ -20,7 +20,6 @@ const Popped = ({ onClose, title }) => {
     }
   };
 
-  // פונקציה שמונעת מהטופס להגיב על קליק בקישור
   const handlePrivacyClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -29,7 +28,6 @@ const Popped = ({ onClose, title }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // בדיקה אם המשתמש אישר את תנאי השימוש ומדיניות הפרטיות
     if (!agreed) {
       alert("עליך לאשר את תנאי השימוש ומדיניות הפרטיות");
       return;
@@ -75,7 +73,6 @@ const Popped = ({ onClose, title }) => {
       });
 
       if (serverResponse.ok) {
-        alert("שמרנו את הפרטים שלך, ניצור קשר בימים הקרובים");
         nameRef.current.value = "";
         phoneRef.current.value = "";
         emailRef.current.value = "";
@@ -84,7 +81,8 @@ const Popped = ({ onClose, title }) => {
         setIsSubmitting(false);
         handleClose();
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // מעבר לדף תודה
+        window.location.href = "/thanks";
       } else {
         throw new Error("שליחה נכשלה");
       }
@@ -137,7 +135,6 @@ const Popped = ({ onClose, title }) => {
                 disabled={isSubmitting}
               />
 
-              {/* תיבת האישור למדיניות הפרטיות */}
               <div className={styles.checkboxContainer}>
                 <label className={styles.checkboxLabel}>
                   <input

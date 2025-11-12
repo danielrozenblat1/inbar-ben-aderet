@@ -1,0 +1,57 @@
+.shortsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.shortItem {
+  width: 400px;
+  height: 700px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shortItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+/* טלפונים */
+@media (max-width: 768px) {
+  .shortsContainer {
+    padding: 16px;
+  }
+  
+  .shortItem {
+    width: 90vw;
+    height: calc(90vw * 1.75);
+    max-width: 400px;
+    max-height: 700px;
+  }
+}
+
+/* טלפונים קטנים */
+@media (max-width: 480px) {
+  .shortsContainer {
+    padding: 12px;
+  }
+  
+  .shortItem {
+    border-radius: 8px;
+  }
+  
+  .iframe {
+    border-radius: 8px;
+  }
+}

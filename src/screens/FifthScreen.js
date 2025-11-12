@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // הוספה
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./FifthScreen.module.css";
 import PrivacyPolicy from "../components/privacy/Privacy";
 import inbal from "../images/עינבר בן אדרת חדש.png"
-import inbalMobile from "../images/עינבר תמונה סוף.png" // הוסף את התמונה החדשה כאן
+import inbalMobile from "../images/עינבר תמונה סוף.png"
 
 // רישום ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SplitForm = ({ imageUrl, title = "לכל שאלה נוספת ,תשאירי כאן פרטים ונדבר" }) => {
   const [agreed, setAgreed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate(); // הוספה
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
@@ -35,10 +37,7 @@ const SplitForm = ({ imageUrl, title = "לכל שאלה נוספת ,תשאירי
       setIsMobile(window.innerWidth <= 750);
     };
 
-    // בדיקה ראשונית
     checkScreenSize();
-
-    // האזנה לשינויים בגודל המסך
     window.addEventListener('resize', checkScreenSize);
 
     return () => {
@@ -369,23 +368,22 @@ const SplitForm = ({ imageUrl, title = "לכל שאלה נוספת ,תשאירי
             y: 0,
             duration: 0.3,
             ease: "power2.out",
-            delay: 1.2
-          })
-          .to(buttonRef.current, {
-            backgroundColor: "#A2ADA5",
-            boxShadow: "0 10px 30px rgba(162, 173, 165, 0.3)",
-            duration: 0.4,
-            ease: "power2.out"
+            delay: 0.5,
+            onComplete: () => {
+              // מעבר לדף תודה לאחר סיום האנימציה
+              navigate("/thanks");
+            }
           });
 
-        alert("שמרנו את הפרטים שלך, ניצור קשר בימים הקרובים");
+        // אפשר להסיר את ה-alert והסקרול
+        // alert("שמרנו את הפרטים שלך, ניצור קשר בימים הקרובים");
         nameRef.current.value = "";
         phoneRef.current.value = "";
         emailRef.current.value = "";
         messageRef.current.value = "";
         setAgreed(false);
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         throw new Error("שליחה נכשלה");
       }
