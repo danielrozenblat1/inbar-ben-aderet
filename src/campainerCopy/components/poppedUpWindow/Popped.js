@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Popped.module.css";
 import { FaTimes } from "react-icons/fa";
 import PrivacyPolicy from "../privacy/Privacy";
@@ -6,6 +7,7 @@ import PrivacyPolicy from "../privacy/Privacy";
 const Popped = ({ onClose, title }) => {
   const [agreed, setAgreed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
@@ -73,16 +75,7 @@ const Popped = ({ onClose, title }) => {
       });
 
       if (serverResponse.ok) {
-        nameRef.current.value = "";
-        phoneRef.current.value = "";
-        emailRef.current.value = "";
-        messageRef.current.value = "";
-        setAgreed(false);
-        setIsSubmitting(false);
-        handleClose();
-
-        // מעבר לדף תודה
-        window.location.href = "/thanks";
+        navigate("/thanks");
       } else {
         throw new Error("שליחה נכשלה");
       }

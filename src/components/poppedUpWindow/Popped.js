@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./Popped.module.css";
 import { FaTimes } from "react-icons/fa";
 import PrivacyPolicy from "../privacy/Privacy";
 
 const Popped = ({ onClose, title }) => {
   const [agreed, setAgreed] = useState(false);
+  const navigate = useNavigate();
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
@@ -19,7 +21,6 @@ const Popped = ({ onClose, title }) => {
     }
   };
 
-  // פונקציה שמונעת מהטופס להגיב על קליק בקישור
   const handlePrivacyClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -28,7 +29,6 @@ const Popped = ({ onClose, title }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // בדיקה אם המשתמש אישר את תנאי השימוש ומדיניות הפרטיות
     if (!agreed) {
       alert("עליך לאשר את תנאי השימוש ומדיניות הפרטיות");
       return;
@@ -60,7 +60,7 @@ const Popped = ({ onClose, title }) => {
       name,
       phone,
       email,
-      reason: experience, // שולח את התשובה בשדה reason לשרת
+      reason: experience,
       reciver
     };
 
@@ -72,15 +72,7 @@ const Popped = ({ onClose, title }) => {
       });
 
       if (serverResponse.ok) {
-        alert("שמרנו את הפרטים שלך, ניצור קשר בימים הקרובים");
-        nameRef.current.value = "";
-        phoneRef.current.value = "";
-        emailRef.current.value = "";
-        experienceRef.current.value = "";
-        setAgreed(false);
-        handleClose();
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        navigate("/thanks");
       } else {
         throw new Error("שליחה נכשלה");
       }
@@ -132,7 +124,6 @@ const Popped = ({ onClose, title }) => {
                 required
               />
 
-              {/* תיבת האישור למדיניות הפרטיות */}
               <div className={styles.checkboxContainer}>
                 <label className={styles.checkboxLabel}>
                   <input
